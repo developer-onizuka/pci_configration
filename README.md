@@ -28,6 +28,7 @@ $ sudo lspci -v -x -s 04:00.0
 ```
 
 # 2. BAR
+Comparing Bar's data with resouce file in /sys/bus/pci/devices/0000:0x:00.0.
 ```
 $ ls -l resource*
 -r--r--r-- 1 root root      4096  7月 31 08:03 resource
@@ -37,7 +38,10 @@ $ ls -l resource*
 -rw------- 1 root root  33554432  7月 31 08:32 resource3
 -rw------- 1 root root  33554432  7月 31 08:32 resource3_wc
 -rw------- 1 root root       128  7月 31 08:32 resource5
+```
 
+The following is the result the data is consistent between mapped datas from /dev/mem and resource file.
+```
 $ sudo go run mmap-pci.go 
 ----- PCI BAR Space and /sys/bus/pci/devices/0000:0x:00.0/resource -----
 err: <nil>
